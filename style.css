@@ -1,0 +1,198 @@
+/* ==========================================================================
+   統一導覽列 (Navbar) 樣式 - 貼在 style.css 最底部
+   ========================================================================== */
+
+/* 引入 style(1).css 的設計變數 */
+:root {
+    --primary: #FF5E3A;      /* 亮橘主色 */
+    --secondary: #FFC529;    /* 黃色輔助色 */
+    --accent: #4A90E2;       /* 藍色強調色 */
+    --bg-color: #FFF9F2;     
+    --card-bg: #FFFFFF;
+    --text-main: #2C3E50;    /* 深色主要文字 */
+    --text-light: #7F8C8D; 
+    --nav-height: 85px;      /* 統一導航欄高度 */
+    --radius: 20px; 
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 彈性過渡動畫 */
+}
+
+/* 套用統一字型 */
+navbar, .nav-links a, .logo {
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
+navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky; /* 改為 sticky 隨螢幕滾動固定於頂部 */
+    top: 0;
+    height: var(--nav-height);
+    background-color: var(--primary); /* 使用主色調（橘色） */
+    box-shadow: 0 4px 20px rgba(255, 94, 58, 0.3); /* 橘色微光陰影 */
+    z-index: 1000;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo {
+    white-space: nowrap; /* 避免 Logo 文字因擠壓斷行 */
+    flex-shrink: 0;     /* 防止 Logo 縮小 */
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--secondary); /* Logo 亮點使用輔助黃色 */
+}
+
+/* 桌機版預設隱藏漢堡選單按鈕 */
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3.5px;
+    width: 100%;
+    background-color: #FFFFFF; /* 改為白色以搭配橘色背景 */
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* 項目之間的固定距離 */
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #FFFFFF; /* 預設文字為白色 */
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap; /* 避免選單文字因寬度變窄而斷行 */
+    padding: 8px 18px;
+    border-radius: 30px; /* 圓角膠囊形狀 */
+    transition: var(--transition);
+}
+
+/* 頁面共用 */
+.page { padding: 3rem 5%; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - var(--nav-height) - 60px); animation: bounceIn 0.5s ease-out; }
+@keyframes bounceIn { 0% { opacity: 0; transform: translateY(15px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* 首頁橫幅 */
+.home-container { padding: 0; margin: 0; max-width: 100%; height: calc(100vh - var(--nav-height)); overflow: hidden; }
+.full-width-banner { width: 100%; height: 100%; }
+.full-width-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+/* 分類列表 */
+.hero-banner { border-radius: var(--radius); padding: 3rem 2rem; text-align: center; color: white; margin-bottom: 3rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.hero-banner h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 900; }
+.restaurant-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.restaurant-card { background: var(--card-bg); border-radius: var(--radius); overflow: hidden; text-decoration: none; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); }
+.restaurant-card:hover { transform: scale(1.03); box-shadow: 0 15px 35px rgba(255, 94, 58, 0.2); }
+.restaurant-card img { width: 100%; height: 220px; object-fit: cover; }
+.restaurant-card-body { padding: 1.5rem; text-align: center; }
+.restaurant-card-body h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+.restaurant-card-body p { color: var(--text-light); font-weight: bold; }
+.interactive-btn { display: inline-block; margin-top: 1rem; padding: 8px 20px; background-color: var(--secondary); border-radius: 20px; color: var(--text-main); font-weight: bold; }
+
+/* 餐廳內頁 */
+.back-btn { display: inline-flex; padding: 10px 20px; background-color: white; color: var(--text-main); border-radius: 30px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 2px solid transparent; transition: var(--transition); }
+.back-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateX(-5px); }
+.store-section { background: var(--card-bg); border-radius: var(--radius); padding: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.05); }
+.store-banner { width: 100%; height: 350px; border-radius: calc(var(--radius) - 5px); overflow: hidden; margin-bottom: 2rem; }
+.store-banner img { width: 100%; height: 100%; object-fit: cover; }
+.store-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+.store-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.store-info { background: var(--bg-color); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--secondary); }
+.store-info ul { list-style: none; }
+.store-info li { margin-bottom: 1.2rem; font-size: 1.1rem; }
+.store-info li strong { color: var(--accent); display: block; margin-bottom: 0.3rem; font-size: 1.2rem; }
+.store-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.store-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; transition: var(--transition); }
+.store-gallery img:hover { transform: scale(1.05); }
+
+/* 頁尾 */
+footer { text-align: center; padding: 2rem; background-color: var(--text-main); color: white; margin-top: auto; }
+
+
+/* 滑過（Hover）及啟動狀態的彈性效果 */
+.nav-links li a:hover, 
+.nav-links li a.active {
+    background-color: var(--secondary); /* 背景變更為黃色 */
+    color: var(--text-main); /* 文字變更為深色 */
+    transform: translateY(-3px); /* 輕微向上浮動 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 💻 中等螢幕、小筆電或平板橫放微調 (1024px ~ 1250px) */
+@media (max-width: 1250px) {
+    .nav-links {
+        gap: 10px; /* 縮減間距 */
+    }
+    .nav-links li a {
+        padding: 6px 12px; /* 縮小文字邊距 */
+        font-size: 0.95rem; /* 微調字型 */
+    }
+}
+
+/* 📱 提早啟用行動版/漢堡選單 (1024px 以下) */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex; /* 顯示三條線按鈕 */
+    }
+
+    .nav-links {
+        display: none; /* 預設先隱藏 */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary); /* 下拉選單改用橘色底色 */
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 15px 0;
+        z-index: 999;
+    }
+
+    /* 當點擊漢堡選單（被加入 active 類別）時，垂直向下展開 */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        width: 100%;
+        border-radius: 0; /* 在下拉選單中取消圓角膠囊設計 */
+    }
+
+    .nav-links li a:hover, 
+    .nav-links li a.active {
+        transform: none; /* 行動端取消上浮特效以利對齊 */
+        box-shadow: none;
+        background-color: var(--secondary);
+        color: var(--text-main);
+    }
+}

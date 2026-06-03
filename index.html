@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食在嘉大 🍽️ 青春美食地圖</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        .full-width-banner {
+            width: 100%;
+        }
+        .full-width-banner img {
+            width: 100%;
+            height: auto;
+            max-width: 1600px; /* 避免在超大螢幕上過度放大 */
+            margin: 0 auto;
+            display: block;
+            object-fit: contain; /* 確保完整顯示新圖，不裁切 */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- 導航欄 -->
+    <navbar>
+        <a href="index.html" class="logo">🌟 食在<span>嘉大</span></a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">主頁</a></li>
+            <li><a href="local.html">在地美食</a></li>
+            <li><a href="dessert.html">甜品飲料</a></li>
+            <li><a href="coffee.html">咖啡店</a></li>
+            <li><a href="exotic.html">異國料理</a></li>
+            <li><a href="pocket.html">口袋名單</a></li>
+            <li><a href="vege.html">無肉蔬食</a></li>
+            <li><a href="about.html">關於</a></li>
+        </ul>
+    </navbar>
+
+    <!-- 首頁主要內容：滿版橫幅 -->
+    <div class="home-container">
+        <div class="full-width-banner">
+            <img src="main-banner.jpg" alt="食在嘉大 - 嘉義大學生的美食攻略">
+        </div>
+    </div>
+
+    <!-- 首頁頁尾 -->
+    <footer>
+        <p>&copy; 2026 食在嘉大 NCYU Food Guide. 青春熱血製作 🔥</p>
+    </footer>
+
+    <!-- 手機版選單切換腳本 -->
+    <script>
+        function toggleMenu() { 
+            document.getElementById('navLinks').classList.toggle('active'); 
+        }
+    </script>
+</body>
+</html>

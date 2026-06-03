@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在地美食 - 食在嘉大</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 針對不同裝置微調 Banner 的高度比例 */
+        .hero-banner {
+            height: 300px;
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+        /* 針對手機與平板調整 Banner 高度比例，維持畫面美觀 */
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: 200px;
+            }
+            .hero-banner h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<navbar>
+        <a href="index.html" class="logo">🌟 食在<span>嘉大</span></a>
+        <!-- 💡 確認每個頁面都有這段漢堡選單結構 -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">主頁</a></li>
+            <li><a href="local.html" class=active>在地美食</a></li>
+            <li><a href="dessert.html">甜品飲料</a></li>
+            <li><a href="coffee.html">咖啡店</a></li>
+            <li><a href="exotic.html">異國料理</a></li>
+            <li><a href="pocket.html">口袋名單</a></li>
+            <li><a href="vege.html">無肉蔬食</a></li>
+            <li><a href="about.html">關於</a></li>
+        </ul>
+    </navbar>
+
+    <div class="page">
+        <!-- 直接將背景圖片寫在行內 Style 中，避免被外部 style.css 蓋掉 -->
+        <div class="hero-banner" style="background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('street food.jpg'); background-size: cover; background-position: center;">
+            <h1 style="color: #ffffff; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);">來嘉義必吃的在地美食</h1>
+        </div>
+        <div class="restaurant-grid">
+            <a href="store-alou.html" class="restaurant-card">
+                <img src="alou.jpg">
+                <div class="restaurant-card-body"><h3>阿樓師火雞肉飯</h3><p></p><span class="interactive-btn">查看詳情 👉</span></div>
+            </a>
+            
+            <a href="store-Lin%20smart.html" class="restaurant-card">
+                <img src="smart%20banner.jpg">
+                <div class="restaurant-card-body"><h3>林聰明沙鍋魚頭</h3><p></p><span class="interactive-btn">查看詳情 👉</span></div>
+            </a>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 食在嘉大 NCYU Food Guide.</p></footer>
+    <script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
+</body>
+</html>

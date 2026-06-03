@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>阿樓師 - 食在嘉大</title><link rel="stylesheet" href="style.css">
+    <style>
+        /* 調整版面佈局 */
+        .store-content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .store-description {
+            flex: 1.2;
+            min-width: 300px;
+        }
+        
+        .store-description h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-left: 4px solid #e74c3c;
+            padding-left: 10px;
+        }
+        
+        .store-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .store-right-panel {
+            flex: 0.8;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .store-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+        
+        .store-gallery img, .store-banner img {
+            cursor: zoom-in;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .store-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .store-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        .store-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .store-info li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .store-info li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 燈箱視窗 (Lightbox Modal) 樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 75vh;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .close-btn:hover {
+            color: #ccc;
+        }
+        .hero-banner h1 {
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <navbar><a href="index.html" class="logo">🌟 食在<span>嘉大</span></a><div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+                <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">主頁</a></li>
+            <li><a href="local.html" class="active">在地美食</a></li> <!-- 💡 修正此頁的高亮為在地美食 -->
+            <li><a href="dessert.html">甜品飲料</a></li>
+            <li><a href="coffee.html">咖啡店</a></li>
+            <li><a href="exotic.html">異國料理</a></li>
+            <li><a href="pocket.html">口袋名單</a></li>
+            <li><a href="vege.html">無肉蔬食</a></li>
+            <li><a href="about.html">關於</a></li>
+        </ul>
+    </navbar>
+    <div class="page">
+        <a href="local.html" class="back-btn">⬅ 返回在地美食</a>
+        <div class="store-section">
+            <div class="store-banner"><img src="alou.jpg" class="zoomable-img"></div>
+            <h2 class="store-title">阿樓師火雞肉飯</h2>
+            <div class="store-content">
+                <!-- 左邊：文案 -->
+                <div class="store-description">
+                    <h3>關於 阿樓師火雞肉飯</h3>
+                    <p>阿樓師火雞肉飯是嘉義相當具有代表性的在地小吃之一，也是許多人到嘉義旅遊時會特地前往品嚐的知名店家。店家以火雞肉飯為主打，使用細嫩的火雞肉絲搭配香氣濃厚的醬汁，再淋在白飯上，形成簡單卻具有地方特色的經典口味。</p>
+                    <p>除了火雞肉飯之外，店內也提供許多台式小菜與湯品，讓顧客能夠自由搭配。由於價格相對平價、出餐速度快，加上位於嘉義市區，因此不論是在地居民、學生或觀光客，都相當常前往用餐。</p>
+                    <h3>美食推薦</h3>
+                    <h4>火雞肉片飯</h4>
+                    <p>火雞肉片飯是許多人推薦的人氣餐點之一，與一般火雞肉飯相比，使用較大片的火雞肉切片，吃起來口感更加扎實，也能更明顯感受到火雞肉本身的鮮嫩風味。搭配店家招牌醬汁後，相當下飯。</p>
+                     <h4>火雞肉飯</h4>
+                    <p>火雞肉飯同樣是店內經典招牌，整體風味與火雞肉片飯相近，主要差別在於使用火雞肉絲呈現。醬汁帶有油蔥香氣，搭配白飯後口味濃郁，是不少人到店必點的基本款。</p>
+                    <h3>個人心得</h3>
+                    <p>許多人第一次品嚐阿樓師火雞肉飯時，會對醬汁的香氣留下深刻印象。雖然料理本身看似簡單，但火雞肉與醬汁搭配後，能呈現具有嘉義地方特色的風味。店員和老闆的記憶力超強，不需要寫菜單就能記得客人點什麼，店裡的人潮還沒有停止過。<p>
+                    <p>對不少人而言，火雞肉飯不只是日常小吃，也是一種代表嘉義飲食文化的象徵。雖然用餐時間經常需要排隊，但由於價格平價、出餐快速，加上具有在地特色，因此仍吸引許多觀光客與在地居民前往用餐。</p>
+                </div>
+                <!-- 右邊：照片與基本資訊 -->
+                <div class="store-right-panel">
+                    <div class="store-gallery">
+                        <img src="Turkey.jpg" class="zoomable-img">
+                        <img src="Turkey%202.jpg" class="zoomable-img">
+                    </div>
+                    <div class="store-info">
+                        <ul>
+                            <li><strong>📍 地點：</strong>嘉義市東區吳鳳北路102號</li>
+                            <li><strong>📆 營業時間：</strong>每日 16:00-00:00</li>
+                            <li><strong>💰 價格：</strong>約 $1 - 200</li>
+                            <li><strong>☎️ 聯絡方式：</strong>05 228 2738</li>
+                        </ul>
+                        <br>
+                         <div class="store-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.544302076431!2d120.45107787589106!3d23.47689659922021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e9436d6da81cf%3A0x4692dbbba8a8dfef!2z6Zi_5qiT5bir54Gr6Zue6IKJ6aOv!5e0!3m2!1szh-TW!2stw!4v1780146727546!5m2!1szh-TW!2stw" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 放大瀏覽燈箱 -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <footer><p>&copy; 2026 食在嘉大 NCYU Food Guide.</p></footer>
+    
+    <script>
+        function toggleMenu() { 
+            document.getElementById('navLinks').classList.toggle('active'); 
+        }
+
+        // 圖片點擊放大功能
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const zoomImages = document.querySelectorAll(".zoomable-img");
+
+        zoomImages.forEach(img => {
+            img.addEventListener("click", function() {
+                modal.style.display = "block";
+                setTimeout(() => {
+                    modal.classList.add("show");
+                }, 10);
+                modalImg.src = this.src;
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300); // 對應 CSS transition 的 0.3s
+        }
+
+        // 點擊燈箱背景時關閉
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body></html>

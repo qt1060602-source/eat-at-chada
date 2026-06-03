@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無肉蔬食 - 食在嘉大</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-banner {
+            height: 300px;
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.2rem;
+            margin: 0;
+        }
+                .hero-banner h1 {
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <navbar>
+        <a href="index.html" class="logo">🌟 食在<span>嘉大</span></a>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">主頁</a></li>
+            <li><a href="local.html" >在地美食</a></li> <!-- 💡 修正此頁的高亮為在地美食 -->
+            <li><a href="dessert.html">甜品飲料</a></li>
+            <li><a href="coffee.html">咖啡店</a></li>
+            <li><a href="exotic.html">異國料理</a></li>
+            <li><a href="pocket.html">口袋名單</a></li>
+            <li><a href="vege.html" class="active">無肉蔬食</a></li>
+            <li><a href="about.html">關於</a></li>
+        </ul>
+    </navbar>
+
+    <div class="page">
+        <!-- 如果您有蔬食 Banner 圖片，可以把下方 url('vege-hero.jpg') 換成您的圖片檔名 -->
+        <div class="hero-banner" style="background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('vege banner.jpg'); background-size: cover; background-position: center;">
+            <h1 style="color: #344e41; text-shadow: 0 1px 4px rgba(255, 255, 255, 0.4);">🌱 尋找無肉的純粹美味</h1>
+        </div>
+        
+        <div class="restaurant-grid">
+            <!-- 範例店家卡片 1 (您可以根據實際店家修改檔案名稱與圖片) -->
+            <a href="store-vege1.html" class="restaurant-card">
+                <img src="vege1-banner.jpg">
+                <div class="restaurant-card-body">
+                    <h3>蔬食小館 A</h3>
+                    <p>精緻健康的美味素食</p>
+                    <span class="interactive-btn">查看詳情 👉</span>
+                </div>
+            </a>
+            
+            <!-- 範例店家卡片 2 -->
+            <a href="store-vege2.html" class="restaurant-card">
+                <img src="vege2-banner.jpg">
+                <div class="restaurant-card-body">
+                    <h3>蔬食餐廳 B</h3>
+                    <p>創意多國蔬食料理</p>
+                    <span class="interactive-btn">查看詳情 👉</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <footer><p>&copy; 2026 食在嘉大 NCYU Food Guide.</p></footer>
+    <script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
+</body>
+</html>
