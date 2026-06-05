@@ -2,18 +2,26 @@
    統一導覽列 (Navbar) 樣式 - 貼在 style.css 最底部
    ========================================================================== */
 
-/* 引入 style(1).css 的設計變數 */
 :root {
-    --primary: #FF5E3A;      /* 亮橘主色 */
-    --secondary: #FFC529;    /* 黃色輔助色 */
-    --accent: #4A90E2;       /* 藍色強調色 */
-    --bg-color: #FFF9F2;     
-    --card-bg: #FFFFFF;
-    --text-main: #2C3E50;    /* 深色主要文字 */
-    --text-light: #7F8C8D; 
-    --nav-height: 85px;      /* 統一導航欄高度 */
-    --radius: 20px; 
+    --primary: #FF5E3A;       /* 主色調：活力亮橘 */
+    --secondary: #FFC529;     /* 輔助色：金黃色 */
+    --accent: #4A90E2;        /* 強調色：晴空藍 */
+    --bg-color: #FFF9F2;      /* 網頁背景：溫暖米白 */
+    --card-bg: #FFFFFF;       /* 卡片背景：純白 */
+    --text-main: #2C3E50;     /* 主要文字：深藍灰 */
+    --text-light: #7F8C8D;    /* 次要文字：灰色 */
+    --nav-height: 85px;       /* 導航欄高度 */
+    --radius: 20px;           /* 統一圓角半徑 */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 彈性過渡動畫 */
+}
+
+/* 💻 全域基礎樣式與背景色設定 */
+body {
+    background-color: var(--bg-color); /* 套用溫暖米白 #FFF9F2 */
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* 套用統一字型 */
